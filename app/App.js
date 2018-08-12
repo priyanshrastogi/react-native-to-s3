@@ -30,7 +30,7 @@ export default class App extends React.Component {
     res = await res.json();
     this.setState({status: `Uploading to AWS S3`});
     const xhr = new XMLHttpRequest()
-    xhr.open('PUT', urlResponse.data.url)
+    xhr.open('PUT', res.url)
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
