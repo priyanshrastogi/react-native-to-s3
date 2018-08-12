@@ -24,7 +24,7 @@ export default class App extends React.Component {
     }
   }
 
-  uploadImage = async (imageUri) => {
+  uploadImage = async () => {
     this.setState({status: `Fetching Upload URL`});
     let res = await fetch('http://api.com/upload/images');
     res = await res.json();
@@ -42,7 +42,7 @@ export default class App extends React.Component {
       }
     }
     xhr.setRequestHeader('Content-Type', 'image/jpeg')
-    xhr.send({ uri: imageUri, type: 'image/jpeg', name: res.key})
+    xhr.send({ uri: this.state.image.uri, type: 'image/jpeg', name: res.key})
   }
   
   render() {
